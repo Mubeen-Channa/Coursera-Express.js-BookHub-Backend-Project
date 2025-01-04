@@ -27,6 +27,11 @@ app.get('/', (req, res) => {
 });
 
 
+//  Task 1: Get all books
+app.get('/books', (req, res) => {
+    res.json(books);   
+});
+
 
 // Server
 app.listen(PORT, () => {
