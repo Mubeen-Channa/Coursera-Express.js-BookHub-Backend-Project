@@ -33,6 +33,13 @@ app.get('/books', (req, res) => {
 });
 
 
+// --- Task 2: Get books by ISBN ---
+app.get('/books/isbn/:isbn', (req, res) => {
+    const book = books[req.params.isbn];
+    book ? res.json(book) : res.status(404).send("Book not found");
+});
+
+
 // Server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
