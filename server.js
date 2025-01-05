@@ -40,6 +40,13 @@ app.get('/books/isbn/:isbn', (req, res) => {
 });
 
 
+// --- Task 3: Get books by Author ---
+app.get('/books/author/:author', (req, res) => {
+    const results = Object.values(books).filter(b => b.author === req.params.author);
+    res.json(results);
+});
+
+
 // Server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
