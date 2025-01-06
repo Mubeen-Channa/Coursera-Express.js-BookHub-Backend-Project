@@ -54,6 +54,14 @@ app.get('/books/title/:title', (req, res) => {
 });
 
 
+// --- Task 5: Get Book Review ---
+app.get('/books/review/:isbn', (req, res) => {
+    const book = books[req.params.isbn];
+    if (book) res.json(book.reviews);
+    else res.status(404).send("Book not found");
+});
+
+
 // Server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
