@@ -47,6 +47,13 @@ app.get('/books/author/:author', (req, res) => {
 });
 
 
+// --- Task 4: Get books by Title ---
+app.get('/books/title/:title', (req, res) => {
+    const results = Object.values(books).filter(b => b.title === req.params.title);
+    res.json(results);
+});
+
+
 // Server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
