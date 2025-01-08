@@ -62,6 +62,18 @@ app.get('/books/review/:isbn', (req, res) => {
 });
 
 
+// --- Task 6: Register New User ---
+app.post('/register', (req, res) => {
+    const { username, password } = req.body;
+    if (users[username]) {
+      res.status(400).send("User already exists");
+    } else {
+      users[username] = { password };
+      res.send("User registered");
+    }
+});
+
+
 // Server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
