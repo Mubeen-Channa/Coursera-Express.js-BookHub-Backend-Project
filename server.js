@@ -74,6 +74,17 @@ app.post('/register', (req, res) => {
 });
 
 
+// --- Task 7: Login User ---
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    if (users[username]?.password === password) {
+      res.send("Login successful");
+    } else {
+      res.status(401).send("Invalid credentials");
+    }
+});
+
+
 // Server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
