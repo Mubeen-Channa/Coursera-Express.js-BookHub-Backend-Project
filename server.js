@@ -98,6 +98,19 @@ app.put('/books/review/:isbn', (req, res) => {
 });
 
 
+// --- Task 9: Delete Review by User ---
+app.delete('/books/review/:isbn', (req, res) => {
+    const { username } = req.body;
+    const book = books[req.params.isbn];
+    if (book && book.reviews[username]) {
+      delete book.reviews[username];
+      res.send("Review deleted");
+    } else {
+      res.status(404).send("Review not found");
+    }
+});
+
+
 // Server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
