@@ -85,6 +85,19 @@ app.post('/login', (req, res) => {
 });
 
 
+// --- Task 8: Add/Modify Review ---
+app.put('/books/review/:isbn', (req, res) => {
+    const { username, review } = req.body;
+    const book = books[req.params.isbn];
+    if (book) {
+      book.reviews[username] = review;
+      res.send("Review added/updated");
+    } else {
+      res.status(404).send("Book not found");
+    }
+});
+
+
 // Server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
