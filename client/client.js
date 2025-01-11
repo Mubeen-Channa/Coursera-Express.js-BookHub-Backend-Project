@@ -12,3 +12,12 @@ async function getAllBooks() {
     }
 }
 
+
+// Task 11
+function searchByISBN(isbn) {
+    return axios.get(`${baseURL}/books/isbn/${isbn}`)
+      .then(res => console.log("Book by ISBN:", res.data))
+      .catch(err => console.error(err.message));
+}
+
+
