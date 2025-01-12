@@ -21,3 +21,12 @@ function searchByISBN(isbn) {
 }
 
 
+// Task 12 Search by Author
+async function searchByAuthor(author) {
+    try {
+      const response = await axios.get(`${baseURL}/books/author/${author}`);
+      console.log("Books by Author:", response.data);
+    } catch (err) {
+      console.error(err.message);
+    }
+}
