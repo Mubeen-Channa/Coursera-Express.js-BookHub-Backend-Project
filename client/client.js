@@ -30,3 +30,20 @@ async function searchByAuthor(author) {
       console.error(err.message);
     }
 }
+
+// Task 13 Search by Title
+async function searchByTitle(title) {
+    try {
+      const response = await axios.get(`${baseURL}/books/title/${title}`);
+      console.log("Books by Title:", response.data);
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+
+
+// Run the functions as a test
+// getAllBooks();
+// searchByISBN("12345");
+// searchByAuthor("Author A");
+// searchByTitle("Book One");
